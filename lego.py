@@ -8,6 +8,7 @@ from digit_coordinate import digit_coordinate_list
 parser = argparse.ArgumentParser()
 parser.add_argument("--componentnum", default=2)
 parser.add_argument("--exportdir", default="")
+parser.add_argument("--prefix", default="lego")#
 # parser.add_argument("--numxclass", default="10x10")
 # parser.add_help("")
 args = parser.parse_args()
@@ -24,6 +25,6 @@ settings = generate_component_settings(coordinates)
 # settings=np.load('one_componentset.npy')
 settings = [ComponentSetting(*list(settings[i])) for i in range(len(settings))]
 lego_dataset2, label2, components_set2 = lego_generator(int(num), int(num_class), component_num=1, settings=settings)
-np.save(args.exportdir + "one80_componentset.npy", components_set2)
-np.save(args.exportdir + "one80_dataset.npy", lego_dataset2)
-np.save(args.exportdir + "one80_label.npy", label2)
+np.save(args.exportdir + args.prefix+"_componentset.npy", components_set2)
+np.save(args.exportdir + args.prefix+"_dataset.npy", lego_dataset2)
+np.save(args.exportdir + args.prefix+"_label.npy", label2)
