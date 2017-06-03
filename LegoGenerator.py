@@ -17,7 +17,7 @@ def generate_component_settings(coordinates):
     print len(ns)
     # ns2 = np.random.permutation(ns)[:len(coordinates)]
     ns2=ns
-    for index in range(len(nsm)):
+    for index in range(len(ns)):
         clist.append(
             ComponentSetting(coordinate=coordinates[0], variance=1, numbers=ns2[index]))
     return clist
