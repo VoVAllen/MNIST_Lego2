@@ -13,11 +13,11 @@ from scipy import misc
 
 def generate_component_settings(coordinates):
     clist = []
-    ns = list(itertools.combinations(list(range(10)), 3))
+    ns = [(i,j,k) for i in range(10) for j in range(10) for k in range(10)]
     print len(ns)
     # ns2 = np.random.permutation(ns)[:len(coordinates)]
     ns2=ns
-    for index in range(120):
+    for index in range(len(nsm)):
         clist.append(
             ComponentSetting(coordinate=coordinates[0], variance=1, numbers=ns2[index]))
     return clist
